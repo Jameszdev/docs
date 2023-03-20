@@ -16,7 +16,7 @@ build:
 pages:
   stage: deploy
   dependencies: 
-    - client/build
+    - build
   script:
     - cd client
     - rm -rf public
