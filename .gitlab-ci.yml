@@ -5,9 +5,6 @@ variables:
 
 build:
   stage: build
-  cache:
-    paths:
-      - client/node_modules/
   script:
     - cd client/
     - npm install
