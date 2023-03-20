@@ -18,9 +18,8 @@ pages:
   dependencies: 
     - build
   script:
-    - cd client
     - rm -rf public
-    - mv build public
+    - mv client/build public
   artifacts:
     paths:
       - public
