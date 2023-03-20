@@ -22,10 +22,9 @@ export default function TextEditor() {
     const { id: documentId} = useParams()
     const [socket, setSocket] = useState()
     const [quill, setQuill] = useState()
-    const [saveStatus, setSaveStatus] = useState("")
 
     useEffect(() => {
-      const soc = io("http://localhost:3001")
+      const soc = io("https://ws-docs.jamesz.dev")
       setSocket(soc)
       console.log("[WS] Connected to the WebSocket.")
 
@@ -49,12 +48,12 @@ export default function TextEditor() {
     useEffect(() => {
       if (socket == null || quill == null) return
 
-      socket.on("saved-document", doc => {
-        setSaveStatus("Saved")
-      })
+      // socket.on("saved-document", doc => {
+      //   setSaveStatus("Saved")
+      // })
 
       const interval = setInterval(() => {
-        setSaveStatus("Saving Changes...")
+        // setSaveStatus("Saving Changes...")
         socket.emit("save-document", quill.getContents())
       }, SAVE_INTERVAL_MS)
 
