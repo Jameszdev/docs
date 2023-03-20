@@ -9,6 +9,7 @@ build:
     paths:
       - client/node_modules/
   script:
+    - cd client/
     - npm install
     - npm run build
   artifacts:
